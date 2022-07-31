@@ -16,7 +16,7 @@ const data = [
     altText: 'Marketing',
     postLink: "https://www.youtube.com/embed/YFid8oahZYk",
     title: 'Steps of convert MYSQL to PostgreSQL',
-    authorName: 'ENG. GEORGE',
+    authorName: 'SQLIE',
     date: 'Jan 27, 2018',
   },
   {
@@ -34,7 +34,7 @@ const data = [
     altText: 'Startup',
     postLink: 'https://youtu.be/OGf-MXpQjAI',
     title: 'Steps of Convert PostgreSQL to Oracle',
-    authorName: 'Aston Aagar',
+    authorName: 'SQLIE',
     date: 'Jan 25, 2018',
   },
 ];
