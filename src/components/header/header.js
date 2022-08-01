@@ -31,13 +31,15 @@ export default function Header({ className }) {
             ))}
           </Flex>
 
-          <Button
-            className="donate__btn"
-            variant="secondary"
-            aria-label="Get Started"
+          {/*<Button
+        
+          className="donate__btn"
+          variant="secondary"
+          aria-label="Get Started"
           >
-            Get Started
+          Get Started
           </Button>
+        */}
 
           <MobileDrawer />
         </Container>

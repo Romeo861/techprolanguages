@@ -4,9 +4,13 @@ import { Container, Box, Heading, Text, Image, Button } from 'theme-ui';
 import BannerImg from 'assets/banner-thumb.png';
 import ShapeLeft from 'assets/shape-left.png';
 import ShapeRight from 'assets/shape-right.png';
+import TestimonialCard from './testimonial';
+import { Link } from 'components/link';
 
 
 export default function Banner() {
+
+ 
   return (
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
@@ -18,8 +22,12 @@ export default function Banner() {
           <Text as="p" id="animate__tada" variant="heroSecondary">
           We develop your company appliccations using latest modern programing languages to bring your vision to life.
           </Text>
-          
-          <Button variant="primary">Get Start</Button>
+          {/*<a href="form" target="_blank" rel="noreferrer">         <Button className="donate__btn"
+         variant="secondary"
+         aria-label="Get Started"
+       >
+         Get Start</Button>
+  </a>*/}
         </Box>
 
         <Box sx={styles.banner.imageBox}>

@@ -53,14 +53,14 @@ const styles = {
       borderTop: '1px solid',
       borderTopColor: 'border_color',
       display: 'flex',
-      pt: [7, null, 8],
+      pt: [1, null, 2],
       pb: ['40px', null, '100px'],
       textAlign: 'center',
       flexDirection: 'column',
     },
     menus: {
-      mt: [3, 4],
-      mb: 2,
+      mt: [1, 1],
+      mb: 0,
       nav: {
         display: 'flex',
         alignItems: 'center',
@@ -90,7 +90,7 @@ const styles = {
     },
   },
   widgets: {
-    py: [8, null, 9],
+    py: [5, null, 5],
     px: [4, 0, 3, null, 7, 10],
     width: ['100%', '80%', '100%'],
     mx: 'auto',

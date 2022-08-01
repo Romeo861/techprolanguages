@@ -4,30 +4,30 @@ import Github from 'assets/widget/github.svg';
 
 export default {
   widgets: [
-    {
-      id: 1,
-      iconSrc: Chat,
-      altText: 'Community',
-      title: 'Join the Community',
-      description:
-        '',
-    },
-    {
-      id: 2,
-      iconSrc: Community,
-      altText: 'Chat',
-      title: 'Chat Communication',
-      description:
-        '',
-    },
-    {
-      id: 3,
-      iconSrc: Github,
-      altText: 'Github',
-      title: 'Github Access',
-      description:
-        '',
-    },
+    // {
+    //   id: 1,
+    //   iconSrc: Chat,
+    //   altText: 'Community',
+    //   title: 'Join the Community',
+    //   description:
+    //     '',
+    // },
+    // {
+    //   id: 2,
+    //   iconSrc: Community,
+    //   altText: 'Chat',
+    //   title: 'Chat Communication',
+    //   description:
+    //     '',
+    // },
+    // {
+    //   id: 3,
+    //   iconSrc: Github,
+    //   altText: 'Github',
+    //   title: 'Github Access',
+    //   description:
+    //     '',
+    // },
   ],
   // menuItem: [
   //   {
