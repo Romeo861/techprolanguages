@@ -2,8 +2,12 @@
 import { jsx, Container, Heading, Text, Box, Image } from 'theme-ui';
 import SectionHeader from 'components/section-header';
 import{ useState } from "react";
+import axios from "axios";
 
-
+const client = axios.create({
+ // baseURL: "https://techprolanguages.com/api/api/email/support/send" 
+  baseURL: "https://techprolanguages.com/api/api/email/support/send" 
+});
 
 const responsive = {
   desktop: {
@@ -30,10 +34,68 @@ const responsive = {
 
 export default function TestimonialCard() {
 const form = useState("");
+const [email, setEmail] = useState('');
+const[name,setName]=useState('');
+const[body,setBody]=useState('');
+const[loading,setLoading]=useState(false);
+const[sendButtonValue,setSendButtonValue]=useState('Submit')
+const[emailIsValid,setEmailIsValid]=useState(false);
+const[isValid,setIsValid]=useState(true);
+
+
+const checkAvilabillty=()=>{
+  if(!email || !name || !body)
+  {
+    setIsValid(false);
+   
+  }
+  else
+  {
+    setIsValid(true);
+  }
+}
+
+const isValidEmailAddress=(val) =>{
+  
+  //return !! address.match(/.+@.+/);
+  let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  setEmailIsValid(regEmail.test(val));
+  return regEmail.test(val);
+}
  const submit=(e)=>
  {
   e.preventDefault();
   console.log("submit");
+  if(!emailIsValid)
+  {return}
+  if(!email || !name || !body)
+  {
+    setIsValid(false);
+    return;
+  }
+  else
+  {
+    setIsValid(true);
+  }
+  
+  setSendButtonValue('Message is Sending .....');
+  client
+  .post('', {
+    from: email,
+    displayName: name,
+    subject:'Mesaage From techproLanguages Website',
+    body:body
+  })
+  .then((response) => {
+    setEmail('');
+    setName('');
+    setBody('');
+    setSendButtonValue('Message Sent');
+    setTimeout(() => {
+      setSendButtonValue('Submit');
+    }, 3000);
+   
+  });
  }
 
     return (
@@ -44,12 +106,26 @@ const form = useState("");
       
       <Box>
       <div>
-      <form onSubmit={(e)=>submit(e)}>      
-      <input name="name" type="text" className="feedback-input" placeholder="Name" />   
-      <input name="email" type="text" className="feedback-input" placeholder="Email" />
-      <textarea name="text" className="feedback-input" placeholder="Comment"></textarea>
-      <input type="submit" value="SUBMIT" />
-    </form>
+        
+   
+      <form  onSubmit={(e)=>submit(e)}>  
+       
+      <div> 
+      {!isValid&&<div style={{color:'red'}}>you have to fill name and email and body</div>}
+      </div> 
+      <input name="name" type="text" className="feedback-input" placeholder="Name" value={name}  onChange={(e)=>{checkAvilabillty();setName(e.target.value);} }/>   
+      <div>
+       {email.length>0&&!emailIsValid && <div style={{color:'red'}}>Email is not Valid</div>}
+      <input name="email" type="text" className="feedback-input" placeholder="Email" value={email}  onChange={(e)=>{checkAvilabillty();setEmail(e.target.value);isValidEmailAddress(email)}} />
+
+      </div>
+    
+      
+        
+      <textarea name="text" className="feedback-input" placeholder="Please Enter Your Message" value={body}  onChange={(e)=>{checkAvilabillty();setBody(e.target.value)}}></textarea>
+      <input type="submit" value={sendButtonValue}/>
+      
+       </form>
       </div>
        {/* <Carousel
           additionalTransfrom={0}
