@@ -30,7 +30,11 @@ const responsive = {
 
 export default function TestimonialCard() {
 const form = useState("");
-
+ const submit=(e)=>
+ {
+  e.preventDefault();
+  console.log("submit");
+ }
 
     return (
     <section className='form' id="contactus" sx={{ variant: 'section.contactus' }}>
@@ -40,11 +44,11 @@ const form = useState("");
       
       <Box>
       <div>
-      <form>      
-      <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-      <input name="email" type="text" class="feedback-input" placeholder="Email" />
-      <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-      <input type="submit" value="SUBMIT"/>
+      <form onSubmit={(e)=>submit(e)}>      
+      <input name="name" type="text" className="feedback-input" placeholder="Name" />   
+      <input name="email" type="text" className="feedback-input" placeholder="Email" />
+      <textarea name="text" className="feedback-input" placeholder="Comment"></textarea>
+      <input type="submit" value="SUBMIT" />
     </form>
       </div>
        {/* <Carousel

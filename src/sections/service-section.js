@@ -55,7 +55,7 @@ export default function ServiceSection() {
     <section sx={{ variant: 'section.services' }}>
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/IGZpXMDXP4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/IGZpXMDXP4U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
          
 
           <Box sx={styles.shapeBox}>
