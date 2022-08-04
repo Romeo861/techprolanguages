@@ -6,7 +6,7 @@ import axios from "axios";
 
 const client = axios.create({
  // baseURL: "https://techprolanguages.com/api/api/email/support/send" 
-  baseURL: "https://techprolanguages.com/api/api/email/support/send" 
+  baseURL: "https://blogs.techprolanguages.com/api/api/email/support/send" 
 });
 
 const responsive = {
