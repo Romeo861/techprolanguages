@@ -1,9 +1,16 @@
 /** @jsx jsx */
 import { jsx, Container, Heading, Text, Box, Image } from 'theme-ui';
 import SectionHeader from 'components/section-header';
+
+
 import { useState } from "react";
+import axios from "axios";
 
 
+const client = axios.create({
+  // baseURL: "https://techprolanguages.com/api/api/email/support/send" 
+  baseURL: "https://blogs.techprolanguages.com/api/api/email/support/send"
+});
 
 const responsive = {
   desktop: {
@@ -29,25 +36,99 @@ const responsive = {
 };
 
 export default function TestimonialCard() {
-  const form = useState("");
 
+  const form = useState("");
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [body, setBody] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [sendButtonValue, setSendButtonValue] = useState('Submit')
+  const [emailIsValid, setEmailIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(true);
+
+
+  const checkAvilabillty = () => {
+    if (!email || !name || !body) {
+      setIsValid(false);
+
+    }
+    else {
+      setIsValid(true);
+    }
+  }
+
+  const isValidEmailAddress = (val) => {
+
+    //return !! address.match(/.+@.+/);
+    let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    setEmailIsValid(regEmail.test(val));
+    return regEmail.test(val);
+  }
+  const submit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+    if (!emailIsValid) { return }
+    if (!email || !name || !body) {
+      setIsValid(false);
+      return;
+    }
+    else {
+      setIsValid(true);
+    }
+
+    setSendButtonValue('Message is Sending .....');
+    client
+      .post('', {
+        from: email,
+        displayName: name,
+        subject: 'Mesaage From techproLanguages Website',
+        body: body
+      })
+      .then((response) => {
+        setEmail('');
+        setName('');
+        setBody('');
+        setSendButtonValue('Message Sent');
+        setTimeout(() => {
+          setSendButtonValue('Submit');
+        }, 3000);
+
+      });
+  }
 
   return (
+
     <section className='form' id="contactus" sx={{ variant: 'section.contactus' }}>
       <Container css={{ textAlign: 'center' }}>
         <SectionHeader id="contactusid" slogan="CONTACT US" title="We aim to reach you anytime and everywhere.. Your satisfaction is our mission" />
       </Container>
 
       <Box>
+
         <div>
-          <form>
-            <input name="name" type="text" class="feedback-input" placeholder="Name" />
-            <input name="email" type="text" class="feedback-input" placeholder="Email" />
-            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-            <input type="submit" value="SUBMIT" />
+
+
+          <form onSubmit={(e) => submit(e)}>
+
+            <div>
+              {!isValid && <div style={{ color: 'red' }}>you have to fill name and email and body</div>}
+            </div>
+            <input name="name" type="text" className="feedback-input" placeholder="Name" value={name} onChange={(e) => { checkAvilabillty(); setName(e.target.value); }} />
+            <div>
+              {email.length > 0 && !emailIsValid && <div style={{ color: 'red' }}>Email is not Valid</div>}
+              <input name="email" type="text" className="feedback-input" placeholder="Email" value={email} onChange={(e) => { checkAvilabillty(); setEmail(e.target.value); isValidEmailAddress(email) }} />
+
+            </div>
+
+
+
+            <textarea name="text" className="feedback-input" placeholder="Please Enter Your Message" value={body} onChange={(e) => { checkAvilabillty(); setBody(e.target.value) }}></textarea>
+            <input type="submit" value={sendButtonValue} />
+
           </form>
         </div>
         {/* <Carousel
+>>>>>>> 2cdc3e4dd2fb570c779b33166467f506ef97f929
           additionalTransfrom={0}
           arrows={false}
           autoPlaySpeed={3000}
@@ -90,8 +171,8 @@ export default function TestimonialCard() {
             </Box>
           ))}
         </Carousel>*/}
-      </Box>
-    </section>
+      </Box >
+    </section >
   );
 }
 

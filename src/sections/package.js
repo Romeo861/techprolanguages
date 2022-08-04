@@ -13,7 +13,7 @@ const data = [
   {
     id: 1,
     imgSrc: PostThumb1,
-    altText: 'Marketing',
+    altText: 'MYSQL to PostgreSQL',
     postLink: "https://www.youtube.com/embed/YFid8oahZYk",
     title: 'Steps of convert MYSQL to PostgreSQL',
     authorName: 'SQLIE',
@@ -22,7 +22,7 @@ const data = [
   {
     id: 2,
     imgSrc: PostThumb2,
-    altText: 'Creative',
+    altText: 'MYSQL to Oracle',
     postLink: 'https://youtu.be/IGZpXMDXP4U',
     title: 'Steps of Convert MYSQL to Oracle',
     authorName: 'SQLIE',
@@ -31,7 +31,7 @@ const data = [
   {
     id: 3,
     imgSrc: PostThumb3,
-    altText: 'Startup',
+    altText: 'PostgreSQL to Oracle',
     postLink: 'https://youtu.be/OGf-MXpQjAI',
     title: 'Steps of Convert PostgreSQL to Oracle',
     authorName: 'SQLIE',
