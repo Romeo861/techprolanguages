@@ -15,7 +15,7 @@ import TextFeature from 'components/text-feature';
 import ModalVideo from 'react-modal-video';
 import { IoIosPlay } from 'react-icons/io';
 
-
+import ServiceThumb from 'assets/service-thumb.png';
 import shapePattern from 'assets/shape-pattern1.png';
 
 import Smart from 'assets/services/smart.svg';
@@ -55,7 +55,6 @@ export default function ServiceSection() {
     <section sx={{ variant: 'section.services' }}>
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-
           <Image src={ServiceThumb} alt="Thumbnail" />
           <Button
             sx={styles.videoBtn}
@@ -66,7 +65,6 @@ export default function ServiceSection() {
               <IoIosPlay />
             </span>
           </Button>
-
 
           <Box sx={styles.shapeBox}>
             <Image src={shapePattern} alt="Shape" />
