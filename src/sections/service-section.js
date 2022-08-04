@@ -23,23 +23,23 @@ import Secure from 'assets/services/secure.svg';
 
 const data = {
   subTitle: 'our services',
-  title: 'Business Goals Achieved with Modern Design and smart Developement',
+  title: 'Business Goals Achieved with Design',
   features: [
     {
       id: 1,
       imgSrc: Smart,
-      altText: 'Modern desin',
-      title: 'Modern design',
+      altText: 'Smart Features',
+      title: 'Smart Features',
       text:
-        'Software design is the first step in SDLC (Software Design Life Cycle), which moves the concentration from problem domain to solution domain. It tries to specify how to fulfill the requirements mentioned in SRS.',
+        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
     },
     {
       id: 2,
       imgSrc: Secure,
-      altText: 'Smart Developement',
-      title: 'Smart Developement',
+      altText: 'Secure Contents',
+      title: 'Secure Contents',
       text:
-        'Software development is the process of conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.',
+        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
     },
   ],
 };
@@ -47,16 +47,24 @@ const data = {
 export default function ServiceSection() {
   // modal popup video handler
   const [videoOpen, setVideoOpen] = useState(false);
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  // //   setVideoOpen(true);
-  // };
+  const handleClick = (e) => {
+    e.preventDefault();
+    setVideoOpen(true);
+  };
   return (
     <section sx={{ variant: 'section.services' }}>
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/IGZpXMDXP4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         
+          <Image src={ServiceThumb} alt="Thumbnail" />
+          <Button
+            sx={styles.videoBtn}
+            onClick={handleClick}
+            aria-label="Play Button"
+          >
+            <span>
+              <IoIosPlay />
+            </span>
+          </Button>
 
           <Box sx={styles.shapeBox}>
             <Image src={shapePattern} alt="Shape" />
@@ -82,7 +90,7 @@ export default function ServiceSection() {
       <ModalVideo
         channel="youtube"
         isOpen={videoOpen}
-        videoId="ZNA9rmDsYVE"
+        videoId="ePPRRpDUtEY"
         onClose={() => setVideoOpen(false)}
       />
     </section>

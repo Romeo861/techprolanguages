@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Container, Heading, Text, Box, Image } from 'theme-ui';
 import SectionHeader from 'components/section-header';
-import{ useState } from "react";
+import { useState } from "react";
 
 
 
@@ -29,25 +29,25 @@ const responsive = {
 };
 
 export default function TestimonialCard() {
-const form = useState("");
+  const form = useState("");
 
 
-    return (
+  return (
     <section className='form' id="contactus" sx={{ variant: 'section.contactus' }}>
       <Container css={{ textAlign: 'center' }}>
         <SectionHeader id="contactusid" slogan="CONTACT US" title="We aim to reach you anytime and everywhere.. Your satisfaction is our mission" />
       </Container>
-      
+
       <Box>
-      <div>
-      <form>      
-      <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-      <input name="email" type="text" class="feedback-input" placeholder="Email" />
-      <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-      <input type="submit" value="SUBMIT"/>
-    </form>
-      </div>
-       {/* <Carousel
+        <div>
+          <form>
+            <input name="name" type="text" class="feedback-input" placeholder="Name" />
+            <input name="email" type="text" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+            <input type="submit" value="SUBMIT" />
+          </form>
+        </div>
+        {/* <Carousel
           additionalTransfrom={0}
           arrows={false}
           autoPlaySpeed={3000}
@@ -95,9 +95,4 @@ const form = useState("");
   );
 }
 
-const styles = {
-  contactusid:{
-    marginTop:"50px"
-  },
-  
-};
+
