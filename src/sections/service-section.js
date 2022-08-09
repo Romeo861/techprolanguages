@@ -15,7 +15,7 @@ import TextFeature from 'components/text-feature';
 import ModalVideo from 'react-modal-video';
 import { IoIosPlay } from 'react-icons/io';
 
-import ServiceThumb from 'assets/service-thumb.png';
+import ServiceThumb from 'assets/service-thumb.jpg';
 import shapePattern from 'assets/shape-pattern1.png';
 
 import Smart from 'assets/services/smart.svg';
@@ -27,19 +27,20 @@ const data = {
   features: [
     {
       id: 1,
-      imgSrc: Smart,
-      altText: 'Smart Features',
-      title: 'Smart Features',
+      imgSrc: Secure,
+      altText: 'WEB DESIGN',
+      title: 'WEB DESIGN',
       text:
-        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
+        'Pro Tech languages has roots in web design, which means that we have a full grasp of the range of possibilities of the modern web. Whether we are designing complex web pages for global media publications or shipping fully-featured web applications using React, Vue.js, or Angular, we are committed to making every user experience valuable.'
+
     },
     {
       id: 2,
-      imgSrc: Secure,
-      altText: 'Secure Contents',
-      title: 'Secure Contents',
+      imgSrc: Smart,
+      altText: 'MOBILE APP DESIGN',
+      title: 'MOBILE APP DESIGN',
       text:
-        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
+        'Sure, screens are small — but that doesn’t mean a mobile app design can’t be expressive, enchanting, and useful. Pro Tech languages excels at the complex craft of mobile design, We focus on simplicity above all, striving to provide the user with exactly the interface and choices that they expect.'
     },
   ],
 };
@@ -90,7 +91,7 @@ export default function ServiceSection() {
       <ModalVideo
         channel="youtube"
         isOpen={videoOpen}
-        videoId="ePPRRpDUtEY"
+        videoId="RHuTdAquIvA"
         onClose={() => setVideoOpen(false)}
       />
     </section>
